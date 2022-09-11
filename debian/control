@@ -1,0 +1,21 @@
+Source: adaptation-droidian-lavender
+Maintainer: Bardia Moshiri
+Section: metapackages
+Priority: optional
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.5.0.3
+Vcs-Browser: https://github.com/droidian-lavender/adaptation-droidian-lavender
+Vcs-Git: https://github.com/droidian-lavender/adaptation-droidian-lavender.git
+
+Package: adaptation-droidian-lavender
+Architecture: all
+Depends: ${misc:Depends},
+         adaptation-hybris-api28-phone,
+         adaptation-garden-configs,
+Description: adapatation-lavender-meta
+ lavender api28 adaptation metapackage
+
+Package: adaptation-lavender-configs
+Architecture: all
+Depends: ${misc:Depends},
+Description: lavender's adaptation configs

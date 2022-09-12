@@ -11,7 +11,7 @@ Package: adaptation-droidian-lavender
 Architecture: all
 Depends: ${misc:Depends},
          adaptation-hybris-api28-phone,
-         adaptation-garden-configs,
+         adaptation-lavender-configs,
 Description: adapatation-lavender-meta
  lavender api28 adaptation metapackage
 

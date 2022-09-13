@@ -5,3 +5,4 @@
 
 override_dh_installsystemd:
 	dh_installsystemd -padaptation-lavender-configs --name=brightness brightness.service --no-start
+	dh_installsystemd -padaptation-lavender-configs --name=batman batman.service --no-start

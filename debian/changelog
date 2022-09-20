@@ -1,6 +1,6 @@
-adaptation-droidian-lavender (0.0.0+git202208911062339.12gf68b.main) main; urgency=medium
+adaptation-droidian-lavender (0.0.0+git202208920062339.12gf68b.main) main; urgency=medium
 
-  * add files
+  * upstream batman
 
- -- fakeshell <fakeshell@bardia.tech>  Sun, 11 Sep 2022 16:12:16 GMT-4
+ -- fakeshell <fakeshell@bardia.tech>  Tue, 20 Sep 2022 14:45:16 GMT-4
 

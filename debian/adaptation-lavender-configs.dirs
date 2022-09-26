@@ -5,3 +5,4 @@
 /usr/bin
 /usr/share/keyrings
 /etc/systemd/system/bluebinder.service.d
+/var/lib/batman

@@ -1,6 +1,6 @@
 adaptation-droidian-lavender (0.0.0+git2023012220062339.12gf68b.main) main; urgency=medium
 
-  * upstream batman and move phosh.service.d to /etc/systemd/system
+  * change phosh scaling
 
- -- fakeshell <fakeshell@bardia.tech>  Sun, 22 Jan 2023 08:48:16 +0330
+ -- fakeshell <fakeshell@bardia.tech>  Sun, 22 Jan 2023 08:56:16 +0330
 

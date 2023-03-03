@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023030320062339.0b64f23d.main) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023030320062339.5ef8a3b.main) main; urgency=medium
 
-  * adapt to oneplus 3/3t
+  * add preferred hostname
 
- -- fakeshell <fakeshell@bardia.tech>  Fri, 03 Jan 2023 13:36:16 +0330
+ -- fakeshell <fakeshell@bardia.tech>  Fri, 03 Jan 2023 15:12:16 +0330
 

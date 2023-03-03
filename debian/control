@@ -1,21 +1,21 @@
-Source: adaptation-droidian-lavender
+Source: adaptation-droidian-oneplus3
 Maintainer: Bardia Moshiri
 Section: metapackages
 Priority: optional
 Build-Depends: debhelper (>= 10)
 Standards-Version: 4.5.0.3
-Vcs-Browser: https://github.com/droidian-lavender/adaptation-droidian-lavender
-Vcs-Git: https://github.com/droidian-lavender/adaptation-droidian-lavender.git
+Vcs-Browser: https://github.com/droidian-oneplus3/adaptation-droidian-oneplus3
+Vcs-Git: https://github.com/droidian-oneplus3/adaptation-droidian-oneplus3.git
 
-Package: adaptation-droidian-lavender
+Package: adaptation-droidian-oneplus3
 Architecture: all
 Depends: ${misc:Depends},
          adaptation-hybris-api28-phone,
-         adaptation-lavender-configs,
-Description: adapatation-lavender-meta
- lavender api28 adaptation metapackage
+         adaptation-oneplus3-configs,
+Description: adapatation-oneplus3-meta
+ oneplus3 api28 adaptation metapackage
 
-Package: adaptation-lavender-configs
+Package: adaptation-oneplus3-configs
 Architecture: all
 Depends: ${misc:Depends},
-Description: lavender's adaptation configs
+Description: oneplus3's adaptation configs

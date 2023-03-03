@@ -4,5 +4,7 @@
 	dh $@
 
 override_dh_installsystemd:
-	dh_installsystemd -padaptation-lavender-configs --name=brightness brightness.service --no-start
-	dh_installsystemd -padaptation-lavender-configs --name=batman batman.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=double-tap double-tap.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=batman batman.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=wifi-fix wifi-fix.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=halium-overlay halium-overlay.service --no-start

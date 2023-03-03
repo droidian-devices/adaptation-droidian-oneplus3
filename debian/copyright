@@ -1,13 +1,13 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: adaptation-droidian-lavender
-Source: https://github.com/droidian-lavender/adaptation-droidian-lavender
+Source: https://github.com/droidian-oneplus3/adaptation-droidian-oneplus3
 
 Files: *
-Copyright: 2022 Bardia Moshiri <fakeshell@bardia.tech>
+Copyright: 2023 Bardia Moshiri <fakeshell@bardia.tech>
 License: BSD-3-clause
 
 Files: debian/*
-Copyright: 2022 Bardia Moshiri <fakeshell@bardia.tech>
+Copyright: 2023 Bardia Moshiri <fakeshell@bardia.tech>
 License: BSD-3-clause
 
 License: BSD-3-clause

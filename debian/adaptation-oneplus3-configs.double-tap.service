@@ -1,0 +1,10 @@
+[Unit]
+Description=Enable double tap to wake
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "echo 1 > /proc/touchpanel/double_tap_enable"
+
+[Install]
+WantedBy=graphical.target

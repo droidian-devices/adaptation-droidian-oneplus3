@@ -1,0 +1,10 @@
+[Unit]
+Description=Fix wifi
+After=lxc@android.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sh -c "while true; do [ -n \"$(ip l | grep -E '(wlp[0-9]+s[0-9]+|wlan[0-9]+)')\" ] && echo wifi is enabled || (echo wifi is disabled, enabling again; echo '' > /sys/module/wlan/parameters/fwpath; sleep 0.1; echo sta > /sys/module/wlan/parameters/fwpath); sleep 1; done"
+
+[Install]
+WantedBy=graphical.target

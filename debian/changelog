@@ -1,6 +1,6 @@
-adaptation-droidian-lavender (0.0.0+git2023012220062339.12gf68b.main) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023030320062339.0b64f23d.main) main; urgency=medium
 
-  * change phosh scaling
+  * adapt to oneplus 3/3t
 
- -- fakeshell <fakeshell@bardia.tech>  Sun, 22 Jan 2023 08:56:16 +0330
+ -- fakeshell <fakeshell@bardia.tech>  Fri, 03 Jan 2023 13:36:16 +0330
 

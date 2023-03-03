@@ -1,0 +1,5 @@
+/etc/udev/rules.d
+/etc/apt/sources.list.d
+/usr/bin
+/usr/share/keyrings
+/var/lib/batman

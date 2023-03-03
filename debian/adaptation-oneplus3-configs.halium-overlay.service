@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount dashd on top of android-rootfs.img
+After=android-mount.service
+Before=lxc@android.service
+
+[Service]
+Type=simple
+ExecStart=mount /usr/lib/droid-system-overlay/sbin/dashd /var/lib/lxc/android/rootfs/sbin/dashd
+
+[Install]
+WantedBy=graphical.target

@@ -1,6 +1,7 @@
 [Unit]
-Description=Fix wifi
-After=lxc@android.service
+Description=Enable wifi after halium container boots up
+Requires=lxc@android.service
+After=phosh.service
 
 [Service]
 Type=simple

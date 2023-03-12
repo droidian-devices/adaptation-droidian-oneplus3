@@ -1,6 +1,7 @@
 [Unit]
 Description=Enable double tap to wake
-After=graphical.target
+Requires=lxc@android.service
+Before=phosh.service
 
 [Service]
 Type=oneshot

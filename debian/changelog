@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023030320062339.5ef8a3b.main) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023031220062339.859cf59.bookworm) main; urgency=medium
 
-  * add preferred hostname
+  * fix systemd files for dashd mount, dt2w and wifi, upstream batman
 
- -- fakeshell <fakeshell@bardia.tech>  Fri, 03 Jan 2023 15:12:16 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 12 Mar 2023 14:22:16 +0330
 

@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023031220062339.859cf59.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023031920062339..bookworm) main; urgency=medium
 
-  * fix systemd files for dashd mount, dt2w and wifi, upstream batman
+  * move over files from var/lib to usr/lib/droidian/device
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 12 Mar 2023 14:22:16 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 19 Mar 2023 00:33:16 +0330
 

@@ -12,6 +12,7 @@ Architecture: all
 Depends: ${misc:Depends},
          adaptation-hybris-api28-phone,
          adaptation-oneplus3-configs,
+         wlr-randr,
 Description: adapatation-oneplus3-meta
  oneplus3 api28 adaptation metapackage
 

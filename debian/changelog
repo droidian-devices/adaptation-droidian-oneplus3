@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023032120062339.bd1fc7c.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023032592813020.2b95137.bookworm) main; urgency=medium
 
-  * add wlr-randr as a dependency
+  * disable suspend
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Tue, 21 Mar 2023 00:58:16 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Sat, 25 Mar 2023 08:17:16 +0330
 

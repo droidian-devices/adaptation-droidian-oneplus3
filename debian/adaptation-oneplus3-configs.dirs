@@ -2,5 +2,6 @@
 /etc/apt/sources.list.d
 /usr/bin
 /usr/share/keyrings
+/usr/share/glib-2.0/schemas
 /var/lib/batman
 /usr/lib/droidian/device

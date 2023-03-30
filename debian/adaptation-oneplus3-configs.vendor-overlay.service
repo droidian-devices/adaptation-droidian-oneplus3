@@ -1,0 +1,12 @@
+[Unit]
+Description=Vendor overlay service
+Before=lxc@android.service
+After=android-mount.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'mount -o bind /usr/lib/droid-vendor-overlay/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc /vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc'
+ExecStart=/bin/sh -c 'mount -o bind /usr/lib/droid-vendor-overlay/etc/init/hw/init.oneplus3.rc /vendor/etc/init/hw/init.oneplus3.rc'
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Tristate switch service
+Requires=lxc@android.service
+After=phosh.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/fpc1020
+
+[Install]
+WantedBy=graphical.target

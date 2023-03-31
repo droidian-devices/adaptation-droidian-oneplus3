@@ -1,0 +1,11 @@
+[Unit]
+Description=Tristate switch service
+Requires=lxc@android.service
+After=phosh.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tristate
+
+[Install]
+WantedBy=graphical.target

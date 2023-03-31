@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DEVICE_FILE="/dev/input/event5"
+
+while true
+do
+    inotifywait -e modify "$DEVICE_FILE"
+    sudo -u droidian XDG_RUNTIME_DIR=/run/user/32011 wtype -M ctrl -k w
+done

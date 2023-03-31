@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023033009218220.0dedc84.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023040192818091.cf3bfa6.bookworm) main; urgency=medium
 
-  * add overlay file to disable crashing services
+  * add hardware key buttons
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Thu, 30 Mar 2023 18:43:16 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Sat, 01 Sat 2023 02:22:16 +0330
 

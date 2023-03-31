@@ -8,4 +8,6 @@ override_dh_installsystemd:
 	dh_installsystemd -padaptation-oneplus3-configs --name=batman batman.service --no-start
 	dh_installsystemd -padaptation-oneplus3-configs --name=vendor-overlay vendor-overlay.service --no-start
 	dh_installsystemd -padaptation-oneplus3-configs --name=wifi-fix wifi-fix.service --no-start
-	dh_installsystemd -padaptation-oneplus3-configs --name=tristate tristate.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=fpc1020 fpc1020.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=rightkey rightkey.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=keyboard-layout.service keyboard-layout.service --no-start

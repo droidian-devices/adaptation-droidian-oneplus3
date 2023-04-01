@@ -1,1 +1,2 @@
 /usr/lib/adaptation-droidian-oneplus3/sources.list.d/oneplus3.list /etc/apt/sources.list.d/oneplus3.list
+/dev/null /etc/systemd/system/systemd-journald.service

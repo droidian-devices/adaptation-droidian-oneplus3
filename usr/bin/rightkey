@@ -1,9 +1,18 @@
-#!/bin/bash
+#!/bin/sh
+
+#!/bin/sh
 
 DEVICE_FILE="/dev/input/event5"
+
+lights() {
+  echo 40 > /sys/devices/soc/leds-qpnp-18/leds/button-backlight/brightness
+  sleep 1.5
+  echo 0 > /sys/devices/soc/leds-qpnp-18/leds/button-backlight/brightness
+}
 
 while true
 do
     inotifywait -e modify "$DEVICE_FILE"
-    sudo -u droidian XDG_RUNTIME_DIR=/run/user/32011 wtype -M ctrl -k w
+    sudo -u droidian XDG_RUNTIME_DIR=/run/user/32011 wtype -M alt -k f4
+    lights &
 done

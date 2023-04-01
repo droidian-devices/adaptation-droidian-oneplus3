@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023040120192091.a72d708.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023040229182101.fb25222.bookworm) main; urgency=medium
 
-  * add lights to hardware key
+  * rewrite the wifi service
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Sat, 01 Apr 2023 04:48:16 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 01 Apr 2023 00:01:16 +0330
 

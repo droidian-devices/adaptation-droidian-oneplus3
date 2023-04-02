@@ -2,5 +2,5 @@ adaptation-droidian-oneplus3 (0.0.0+git2023040310291827.df80a43.bookworm) main; 
 
   * disable service that we don't use
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 03 Apr 2023 00:8:12 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 03 Apr 2023 00:08:12 +0330
 

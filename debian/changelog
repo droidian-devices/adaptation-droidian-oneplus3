@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023040310291827.c889f9a.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023040310298129.c889f9a.bookworm) main; urgency=medium
 
-  * re-enable healthd
+  * re-enable andr-perf to disable logcat spam
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 03 Apr 2023 00:45:12 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 03 Apr 2023 01:02:12 +0330
 

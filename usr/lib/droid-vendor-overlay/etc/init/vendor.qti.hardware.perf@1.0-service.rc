@@ -1,3 +1,0 @@
-service perf-hal-1-0 vendor.qti.hardware.perf@1.0-service_HALIUM_DISABLED
-    disabled
-    override

@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023040229182101.fb25222.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023040229182910.0b30133.bookworm) main; urgency=medium
 
-  * rewrite the wifi service
+  * restore the old haptic action for now
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 01 Apr 2023 00:01:16 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 02 Apr 2023 04:42:34 +0330
 

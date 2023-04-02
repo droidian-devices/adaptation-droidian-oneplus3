@@ -1,6 +1,6 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023040229182910.0b30133.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023040310291827.df80a43.bookworm) main; urgency=medium
 
-  * restore the old haptic action for now
+  * disable service that we don't use
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Sun, 02 Apr 2023 04:42:34 +0330
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 03 Apr 2023 00:8:12 +0330
 

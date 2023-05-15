@@ -1,0 +1,10 @@
+[Unit]
+Description=OnePlus 3/3T dashd service
+Before=lxc@android.service
+After=android-mount.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'mount -t overlay overlay -o lowerdir=/var/lib/lxc/android/rootfs/sbin,upperdir=/usr/lib/oneplus3-adaptation/vendor-sbin,workdir=/var/lib/lxc/android/ /var/lib/lxc/android/rootfs/sbin'
+[Install]
+WantedBy=multi-user.target

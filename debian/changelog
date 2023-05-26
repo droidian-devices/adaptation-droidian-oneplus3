@@ -1,5 +1,5 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023052213323101.66ceb1d.bookworm) main; urgency=medium
+adaptation-droidian-oneplus3 (0.0.0+git2023052520262201.8ace4d1.bookworm) bookworm; urgency=medium
 
-  * disable sandboxing in bluebinder
+  * remove tristate as it has been added to op3-helpers
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 22 May 2023 13:32:45 -0400
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Thu, 25 May 2023 20:26:34 -0400

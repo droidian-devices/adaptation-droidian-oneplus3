@@ -12,6 +12,7 @@ Architecture: all
 Depends: ${misc:Depends},
          adaptation-hybris-api28-phone,
          adaptation-oneplus3-configs,
+         droidian-sysfs-torch,
          wlr-randr,
          op3-helpers,
 Description: adapatation-oneplus3-meta

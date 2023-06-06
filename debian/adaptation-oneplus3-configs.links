@@ -1,2 +1,7 @@
-/usr/lib/adaptation-droidian-oneplus3/sources.list.d/oneplus3.list /etc/apt/sources.list.d/oneplus3.list
 /dev/null /etc/systemd/system/systemd-journald.service
+/usr/lib/systemd/user/fpc1020.service /usr/lib/systemd/user/gnome-session.target.wants/fpc1020.service
+/usr/lib/systemd/user/s1302.service /usr/lib/systemd/user/gnome-session.target.wants/s1302.service
+/usr/lib/systemd/user/tristate.service /usr/lib/systemd/user/gnome-session.target.wants/tristate.service
+/usr/lib/systemd/system/wifiman.service /etc/systemd/system/multi-user.target.wants/wifiman.service
+/usr/lib/systemd/system/btscanner.service /etc/systemd/system/multi-user.target.wants/btscanner.service
+/usr/lib/systemd/system/lights.service /etc/systemd/system/graphical.target.wants/lights.service

@@ -1,0 +1,12 @@
+[Unit]
+Description=lights service for op3
+Requires=lxc@android.service
+After=phosh.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/lights
+Restart=always
+
+[Install]
+WantedBy=graphical.target

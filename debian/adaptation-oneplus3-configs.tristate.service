@@ -1,0 +1,8 @@
+[Unit]
+Description=tristate switch implementation
+After=sm.puri.Phosh.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tristate
+Restart=always

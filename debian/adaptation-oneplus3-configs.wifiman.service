@@ -1,0 +1,13 @@
+[Unit]
+Description=Enable Wi-Fi on Halium container startup after ModemManager is ready and restart it on service crash
+Requires=android-mount.service
+After=lxc@android.service
+After=ModemManager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wifiman
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

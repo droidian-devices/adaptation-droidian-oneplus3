@@ -1,0 +1,8 @@
+[Unit]
+Description=s1302 softkey implementation
+After=sm.puri.Phosh.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/s1302
+Restart=always

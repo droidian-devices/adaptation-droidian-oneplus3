@@ -6,5 +6,6 @@ After=android-mount.service
 [Service]
 Type=oneshot
 ExecStart=/bin/sh -c 'mount -t overlay overlay -o lowerdir=/var/lib/lxc/android/rootfs/sbin,upperdir=/usr/lib/adaptation-droidian-oneplus3/vendor-sbin,workdir=/var/lib/lxc/android/ /var/lib/lxc/android/rootfs/sbin'
+
 [Install]
 WantedBy=multi-user.target

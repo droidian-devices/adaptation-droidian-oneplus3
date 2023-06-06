@@ -2,19 +2,24 @@ Source: adaptation-droidian-oneplus3
 Maintainer: Bardia Moshiri
 Section: metapackages
 Priority: optional
-Build-Depends: debhelper (>= 10)
+Build-Depends: debhelper, inotify-tools, libwayland-dev, libxkbcommon-dev, libpulse-dev, libpulse-mainloop-glib0, libnotify-dev
 Standards-Version: 4.5.0.3
-Vcs-Browser: https://github.com/droidian-oneplus3/adaptation-droidian-oneplus3
-Vcs-Git: https://github.com/droidian-oneplus3/adaptation-droidian-oneplus3.git
+Vcs-Browser: https://github.com/droidian-devices/adaptation-droidian-oneplus3
+Vcs-Git: https://github.com/droidian-devices/adaptation-droidian-oneplus3.git
 
 Package: adaptation-droidian-oneplus3
 Architecture: all
 Depends: ${misc:Depends},
          adaptation-hybris-api28-phone,
          adaptation-oneplus3-configs,
-         droidian-sysfs-torch,
+         linux-bootimage-oneplus-oneplus3,
          wlr-randr,
-         op3-helpers,
+         inotify-tools,
+         libwayland-dev,
+         libxkbcommon-dev,
+         libpulse-dev,
+         libpulse-mainloop-glib0,
+         libnotify-dev,
 Description: adapatation-oneplus3-meta
  oneplus3 api28 adaptation metapackage
 

@@ -1,0 +1,13 @@
+[Unit]
+Description=Scan for bluetooth devices according to device usage
+Requires=android-mount.service
+After=lxc@android.service
+After=ModemManager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/btscanner
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

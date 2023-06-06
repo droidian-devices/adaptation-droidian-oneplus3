@@ -1,7 +1,14 @@
 /etc/udev/rules.d
+/etc/skel/.local
+/etc/systemd/system/bluebinder.service.d
+/etc/systemd/system/phosh.service.d
+/etc/systemd/system/pulseaudio.service.d
 /usr/bin
+/usr/bin/droid
 /usr/share/glib-2.0/schemas
 /var/lib/batman
 /usr/lib/droidian/device
 /usr/lib/droid-vendor-overlay
-/usr/lib/adaptation-droidian-oneplus3
+/usr/lib/adaptation-droidian-oneplus3/vendor-sbin
+/usr/lib/systemd/system/user@.service.d
+/usr/lib/systemd/user

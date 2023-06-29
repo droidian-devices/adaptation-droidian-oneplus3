@@ -1,0 +1,5 @@
+#!/usr/bin/pulseaudio -nF
+# fix audio output not being able to switch to different devices
+.ifexists module-droid-card.so
+load-module module-droid-card rate=48000 voice_virtual_stream=true quirks=-output_deep_buffer
+.endif

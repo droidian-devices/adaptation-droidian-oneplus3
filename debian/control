@@ -16,11 +16,7 @@ Depends: ${misc:Depends},
          droidian-quirks-full-resize,
          droidian-camera,
          inotify-tools,
-         libwayland-dev,
-         libxkbcommon-dev,
-         libpulse-dev,
          libpulse-mainloop-glib0,
-         libnotify-dev,
 Description: adapatation-oneplus3-meta
  oneplus3 api28 adaptation metapackage
 

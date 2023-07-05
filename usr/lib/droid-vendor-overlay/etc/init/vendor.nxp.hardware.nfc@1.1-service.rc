@@ -1,3 +1,0 @@
-service nqnfc_1_1_hal_service vendor.nxp.hardware.nfc@1.1-service_HALIUM_DISABLED
-    disabled
-    override

@@ -1,0 +1,1 @@
+/usr/lib/systemd/system/lights.service /etc/systemd/system/graphical.target.wants/lights.service

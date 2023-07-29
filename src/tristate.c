@@ -7,9 +7,15 @@
 #include <linux/input.h>
 #include <libnotify/notify.h>
 
-#define DEVICE_FILE "/dev/input/event1"
-#define NAME "tristate"
-#define NOTIFICATION_RESET_COUNT 10
+#define MAX_CONFIG_LINE_LENGTH 255
+#define CONFIG_PATH "/usr/lib/droidian/device/change-on-key.conf"
+
+char DEVICE_FILE[MAX_CONFIG_LINE_LENGTH];
+char NAME[MAX_CONFIG_LINE_LENGTH];
+int NOTIFICATION_RESET_COUNT;
+int KEY_CODE_1;
+int KEY_CODE_2;
+int KEY_CODE_3;
 
 pa_mainloop *mainloop = NULL;
 
@@ -161,7 +167,38 @@ void unmute() {
     toggle_mute(mute_action);
 }
 
+void readconfig() {
+    FILE *file = fopen(CONFIG_PATH, "r");
+    if (file == NULL) {
+        printf("Error: Could not open config file\n");
+        exit(1);
+    }
+
+    char line[MAX_CONFIG_LINE_LENGTH];
+    while (fgets(line, sizeof(line), file)) {
+        char *key = strtok(line, "=");
+        char *value = strtok(NULL, "\n");
+
+        if (strcmp(key, "DEVICE_FILE") == 0) {
+            strcpy(DEVICE_FILE, value);
+        } else if (strcmp(key, "NAME") == 0) {
+            strcpy(NAME, value);
+        } else if (strcmp(key, "NOTIFICATION_RESET_COUNT") == 0) {
+            NOTIFICATION_RESET_COUNT = atoi(value);
+        } else if (strcmp(key, "KEY_CODE_1") == 0) {
+            KEY_CODE_1 = atoi(value);
+        } else if (strcmp(key, "KEY_CODE_2") == 0) {
+            KEY_CODE_2 = atoi(value);
+        } else if (strcmp(key, "KEY_CODE_3") == 0) {
+            KEY_CODE_3 = atoi(value);
+        }
+    }
+
+    fclose(file);
+}
+
 int main(int argc, char *argv[]) {
+    readconfig();
     struct input_event ev;
 
     int fd_notify = inotify_init();

@@ -1,0 +1,1 @@
+/usr/lib/systemd/user/fpc1020.service /usr/lib/systemd/user/gnome-session.target.wants/fpc1020.service

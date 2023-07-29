@@ -2,7 +2,7 @@ Source: adaptation-droidian-oneplus3
 Maintainer: Bardia Moshiri
 Section: metapackages
 Priority: optional
-Build-Depends: debhelper, inotify-tools, libwayland-dev, libxkbcommon-dev, libpulse-dev, libpulse-mainloop-glib0, libnotify-dev
+Build-Depends: debhelper, gcc, inotify-tools, libwayland-dev, libxkbcommon-dev, libpulse-dev, libpulse-mainloop-glib0, libnotify-dev
 Standards-Version: 4.5.0.3
 Vcs-Browser: https://github.com/droidian-devices/adaptation-droidian-oneplus3
 Vcs-Git: https://github.com/droidian-devices/adaptation-droidian-oneplus3.git
@@ -23,4 +23,26 @@ Description: adapatation-oneplus3-meta
 Package: adaptation-oneplus3-configs
 Architecture: arm64
 Depends: ${misc:Depends},
+Provides: tristate-switch, lights-on-action, menu-on-action
+Conflicts: tristate-switch, lights-on-action, menu-on-action
 Description: oneplus3's adaptation configs
+
+Package: tristate-switch
+Architecture: any
+Depends: ${misc:Depends},
+         libpulse-mainloop-glib0,
+         inotify-tools,
+Conflicts: adaptation-oneplus3-configs
+Description: tristate switch service
+
+Package: lights-on-action
+Architecture: any
+Depends: ${misc:Depends},
+Conflicts: adaptation-oneplus3-configs
+Description: turn lights on when a key is pressed
+
+Package: menu-on-action
+Architecture: any
+Depends: ${misc:Depends},
+Conflicts: adaptation-oneplus3-configs
+Description: toggle the phosh drawer when a key is pressed

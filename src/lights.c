@@ -2,9 +2,35 @@
 #include <stdlib.h>
 #include <sys/inotify.h>
 #include <unistd.h>
+#include <string.h>
 
-#define DEVICE_FILE "/dev/input/event5"
-#define LED_BRIGHTNESS "/sys/devices/soc/leds-qpnp-18/leds/button-backlight/brightness"
+#define MAX_CONFIG_LINE_LENGTH 255
+#define CONFIG_PATH "/usr/lib/droidian/device/lights-on-action.conf"
+
+char DEVICE_FILE[MAX_CONFIG_LINE_LENGTH];
+char LED_BRIGHTNESS[MAX_CONFIG_LINE_LENGTH];
+
+void readconfig() {
+    FILE *file = fopen(CONFIG_PATH, "r");
+    if (file == NULL) {
+        printf("Error: Could not open config file\n");
+        exit(1);
+    }
+
+    char line[MAX_CONFIG_LINE_LENGTH];
+    while (fgets(line, sizeof(line), file)) {
+        char *key = strtok(line, "=");
+        char *value = strtok(NULL, "\n");
+
+        if (strcmp(key, "DEVICE_FILE") == 0) {
+            strcpy(DEVICE_FILE, value);
+        } else if (strcmp(key, "LED_BRIGHTNESS") == 0) {
+            strcpy(LED_BRIGHTNESS, value);
+        }
+    }
+
+    fclose(file);
+}
 
 void lights() {
     FILE *f = fopen(LED_BRIGHTNESS, "w");
@@ -21,6 +47,8 @@ void lights() {
 }
 
 int main() {
+    readconfig();
+
     int fd = inotify_init();
 
     if (fd < 0) {

@@ -1,0 +1,2 @@
+usr/bin/lights
+debian/lights.service /usr/lib/systemd/system/

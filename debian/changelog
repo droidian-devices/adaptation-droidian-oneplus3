@@ -1,5 +1,112 @@
-adaptation-droidian-oneplus3 (0.0.0+git2023052921271801.cdc960b.bookworm) bookworm; urgency=medium
+adaptation-droidian-oneplus3 (9+git20230704234148.956a86f.release) trixie; urgency=medium
 
+  [ Bardia Moshiri ]
+  * pulse: disable deep buffer output
+  * vendor-overlay: drop nxp from overrides
+
+  [ Eugenio Paolantonio (g7) ]
+  * [skip ci] Move to Droidian rolling
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Tue, 04 Jul 2023 23:41:48 -0400
+
+adaptation-droidian-oneplus3 (7) bookworm; urgency=medium
+
+  * Cleanup.
+  * Merge pull request #1 from Bettehem/bookworm
+
+ -- Bettehem <chris.mustola@gmail.com>  Fri, 23 Jun 2023 03:12:16 +0300
+
+adaptation-droidian-oneplus3 (6) bookworm; urgency=medium
+
+  * make gst-droid not load to not conflict with aal and sysfs
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Wed, 21 Jun 2023 21:43:35 -0400
+
+adaptation-droidian-oneplus3 (5) bookworm; urgency=medium
+
+  * add droidian-quirks-full-resize as a dependency
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 19 Jun 2023 17:08:21 -0400
+
+adaptation-droidian-oneplus3 (4) bookworm; urgency=medium
+
+  * build the package as arm64
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 19 Jun 2023 00:29:56 -0400
+
+adaptation-droidian-oneplus3 (3) bookworm; urgency=medium
+
+  * drop batman as its not added to meta
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 19 Jun 2023 00:22:03 -0400
+
+adaptation-droidian-oneplus3 (2) bookworm; urgency=medium
+
+  * add all directories to *.dirs
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Tue, 06 Jun 2023 19:26:46 -0400
+
+adaptation-droidian-oneplus3 (1) bookworm; urgency=medium
+
+  [ Bardia Moshiri ]
+  * add files
+  * add apt files
+  * fix typo
+  * fix typo
+  * fix typo again again again
+  * add  batman
+  * update batman to upstream
+  * upstream batman
+  * upstream batman
+  * update changelog
+  * upstream batman
+  * upstream batman
+  * upstream batman
+  * remove batman.list
+  * remove batman.list symlink
+  * upstream batman
+  * move phosh.service.d to /etc/systemd/system
+  * update phosh scaling
+  * adapt to oneplus 3/3t
+  * add preferred hostname
+  * fix systemd files for dashd mount, dt2w and wifi, upstream batman
+  * move over files from var/lib to usr/lib/droidian/device
+  * add wlr-randr as a dependency
+  * disable suspend
+  * add vendor overlay files to stop crashing services
+  * add wlan-fix back
+  * add hardware button scripts
+  * add keyboard layout service
+  * update changelog
+  * typo
+  * enable tristate
+  * add lights support
+  * remove extra shebang
+  * rewrite the wifi service and mask journald as it uses a lot of cpu
+  * update changelog
+  * allow cpu offlining on older arm SoC's
+  * restore the old haptic buttons
+  * disable services we don't use
+  * fix badly formatted trailer line
+  * re-enable healthd
+  * re-enable andr-perf to disable logcat spam
+  * drop the vendor-overlay service
+  * bump the changelog
+  * disable sandboxing in bluebinder
+  * remove tristate as it has been added to op3-helpers
+  * remove accidentally added file
+  * add droidian-sysfs-torch as a dependency
+  * drop the old wifi services in favor of the new implementation in op3-helpers
   * bluebinder: set device policy to auto
+  * add circleci configuration
+  * integrate op3-helpers into adaptation
 
- -- Bardia Moshiri <fakeshell@bardia.tech>  Mon, 29 May 2023 21:27:18 -0400
+  [ Bettehem ]
+  * Update preferred_hostname
+  * Added squeekboard config for OnePlus 3/3T
+  * Added dashd.
+  * Corrected upperdir path in dashd.service
+  * Fixed dashd.
+
+ -- Bardia Moshiri <fakeshell@bardia.tech>  Tue, 06 Jun 2023 03:04:38 -0400
+

@@ -8,7 +8,7 @@
 #include <libnotify/notify.h>
 
 #define MAX_CONFIG_LINE_LENGTH 255
-#define CONFIG_PATH "/usr/lib/droidian/device/change-on-key.conf"
+#define CONFIG_PATH "/usr/lib/droidian/device/action-on-key.conf"
 
 char DEVICE_FILE[MAX_CONFIG_LINE_LENGTH];
 char NAME[MAX_CONFIG_LINE_LENGTH];

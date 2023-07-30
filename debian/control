@@ -23,8 +23,8 @@ Description: adapatation-oneplus3-meta
 Package: adaptation-oneplus3-configs
 Architecture: arm64
 Depends: ${misc:Depends},
-Provides: tristate-switch, lights-on-action, menu-on-action
-Conflicts: tristate-switch, lights-on-action, menu-on-action
+Provides: tristate-switch, lights-on-action, menu-on-action, wifiman-fwpath, btscanner-gcc
+Conflicts: tristate-switch, lights-on-action, menu-on-action, wifiman-fwpath, btscanner-gcc
 Description: oneplus3's adaptation configs
 
 Package: tristate-switch
@@ -46,3 +46,15 @@ Architecture: any
 Depends: ${misc:Depends},
 Conflicts: adaptation-oneplus3-configs
 Description: toggle the phosh drawer when a key is pressed
+
+Package: wifiman-fwpath
+Architecture: any
+Depends: ${misc:Depends},
+Conflicts: adaptation-oneplus3-configs
+Description: small service to fix fwpath content on buggy implementations
+
+Package: btscanner-gcc
+Architecture: any
+Depends: ${misc:Depends},
+Conflicts: adaptation-oneplus3-configs
+Description: small service to start scanning for bluetooth devices when gcc is opened on buggy implementations

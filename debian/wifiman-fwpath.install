@@ -1,0 +1,2 @@
+usr/bin/wifiman
+debian/wifiman.service /usr/lib/systemd/system/

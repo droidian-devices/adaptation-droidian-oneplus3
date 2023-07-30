@@ -1,0 +1,2 @@
+usr/bin/btscanner
+debian/btscanner.service /usr/lib/systemd/system/

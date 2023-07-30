@@ -17,6 +17,9 @@ override_dh_auto_install:
 	cp debian/adaptation-oneplus3-configs.fpc1020.service debian/fpc1020.service
 	cp debian/adaptation-oneplus3-configs.lights.service debian/lights.service
 	cp debian/adaptation-oneplus3-configs.tristate.service debian/tristate.service
+	cp debian/adaptation-oneplus3-configs.btscanner.service debian/btscanner.service
+	cp debian/adaptation-oneplus3-configs.wifiman.service debian/wifiman.service
+
 	dh_auto_install
 	install -D -m 0644 debian/adaptation-oneplus3-configs.fpc1020.service debian/adaptation-oneplus3-configs/usr/lib/systemd/user/fpc1020.service
 	install -D -m 0644 debian/adaptation-oneplus3-configs.s1302.service debian/adaptation-oneplus3-configs/usr/lib/systemd/user/s1302.service

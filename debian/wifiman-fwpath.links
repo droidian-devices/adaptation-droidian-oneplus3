@@ -1,0 +1,1 @@
+/usr/lib/systemd/system/wifiman.service /etc/systemd/system/multi-user.target.wants/wifiman.service

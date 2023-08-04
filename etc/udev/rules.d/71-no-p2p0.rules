@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="p2p0", ENV{NM_UNMANAGED}="1"

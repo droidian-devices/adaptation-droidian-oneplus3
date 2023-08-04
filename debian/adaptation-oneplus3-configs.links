@@ -1,4 +1,5 @@
 /dev/null /etc/systemd/system/systemd-journald.service
+/dev/null /etc/systemd/network/99-default.link
 /usr/lib/systemd/user/fpc1020.service /usr/lib/systemd/user/gnome-session.target.wants/fpc1020.service
 /usr/lib/systemd/user/s1302.service /usr/lib/systemd/user/gnome-session.target.wants/s1302.service
 /usr/lib/systemd/user/tristate.service /usr/lib/systemd/user/gnome-session.target.wants/tristate.service

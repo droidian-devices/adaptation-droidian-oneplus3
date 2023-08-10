@@ -12,8 +12,11 @@
 #include <ctype.h>
 #include <fcntl.h>
 
+#define MAX_PIDS 32768
+
 pid_t bluetoothctl_pid = -1;
-pid_t pgrep_pid = -1;
+pid_t checked_pids[MAX_PIDS];
+int checked_pids_count = 0;
 
 void stop_bluetoothctl() {
     if (bluetoothctl_pid != -1) {
@@ -21,6 +24,15 @@ void stop_bluetoothctl() {
         waitpid(bluetoothctl_pid, NULL, 0);
         bluetoothctl_pid = -1;
     }
+}
+
+int is_pid_checked(pid_t pid) {
+    for (int i = 0; i < checked_pids_count; i++) {
+        if (checked_pids[i] == pid) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 int is_gnome_running() {
@@ -34,9 +46,20 @@ int is_gnome_running() {
         return -1;
     }
 
+    checked_pids_count = 0;
+
     while ((entry = readdir(dir)) != NULL) {
         if (!isdigit(*entry->d_name))
             continue;
+
+        pid_t pid = (pid_t)atoi(entry->d_name);
+
+        if (is_pid_checked(pid))
+            continue;
+
+        if (checked_pids_count < MAX_PIDS) {
+            checked_pids[checked_pids_count++] = pid;
+        }
 
         snprintf(path, sizeof(path), "/proc/%s/cmdline", entry->d_name);
         if ((fp = fopen(path, "r")) != NULL) {
@@ -61,20 +84,18 @@ int main() {
     while(1) {
         gnomeRunning = is_gnome_running();
 
-        if (gnomeRunning == 1) {
-            if (bluetoothctl_pid == -1) {
-                bluetoothctl_pid = fork();
-                if (bluetoothctl_pid == 0) {
-                    execlp("bluetoothctl", "bluetoothctl", "scan", "on", NULL);
-                    perror("execlp");
-                    return 1;
-                }
+        if (gnomeRunning == 1 && bluetoothctl_pid == -1) {
+            bluetoothctl_pid = fork();
+            if (bluetoothctl_pid == 0) {
+                execlp("bluetoothctl", "bluetoothctl", "scan", "on", NULL);
+                perror("execlp");
+                return 1;
             }
-        } else {
+        } else if (gnomeRunning == 0) {
             stop_bluetoothctl();
         }
 
-        sleep(1);
+        sleep(2);
     }
 
     return 0;

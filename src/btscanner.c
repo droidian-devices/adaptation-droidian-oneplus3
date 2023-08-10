@@ -32,6 +32,7 @@ int is_pid_checked(pid_t pid) {
             return 1;
         }
     }
+
     return 0;
 }
 
@@ -57,20 +58,27 @@ int is_gnome_running() {
         if (is_pid_checked(pid))
             continue;
 
-        if (checked_pids_count < MAX_PIDS) {
-            checked_pids[checked_pids_count++] = pid;
-        }
-
-        snprintf(path, sizeof(path), "/proc/%s/cmdline", entry->d_name);
+        snprintf(path, sizeof(path), "/proc/%s/stat", entry->d_name);
         if ((fp = fopen(path, "r")) != NULL) {
             if (fgets(read_buf, sizeof(read_buf), fp) != NULL) {
-                if (strstr(read_buf, "gnome-control-center") != NULL) {
+                fclose(fp);
+                snprintf(path, sizeof(path), "/proc/%s/cmdline", entry->d_name);
+                if ((fp = fopen(path, "r")) != NULL) {
+                    if (fgets(read_buf, sizeof(read_buf), fp) != NULL) {
+                        if (strstr(read_buf, "gnome-control-center") != NULL) {
+                            fclose(fp);
+                            closedir(dir);
+                            return 1;
+                        }
+                    }
+
                     fclose(fp);
-                    closedir(dir);
-                    return 1;
                 }
             }
-            fclose(fp);
+        }
+
+        if (checked_pids_count < MAX_PIDS) {
+            checked_pids[checked_pids_count++] = pid;
         }
     }
 

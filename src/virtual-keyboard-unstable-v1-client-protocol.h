@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Copyright (C) 2023 Bardia Moshiri <fakeshell@bardia.tech>
+
 #ifndef VIRTUAL_KEYBOARD_UNSTABLE_V1_CLIENT_PROTOCOL_H
 #define VIRTUAL_KEYBOARD_UNSTABLE_V1_CLIENT_PROTOCOL_H
 

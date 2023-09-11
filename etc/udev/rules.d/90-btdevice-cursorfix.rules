@@ -1,0 +1,3 @@
+# Rules to fix cursor showing up on a Bluetooth device connection
+
+ACTION=="add", KERNEL=="event8", SUBSYSTEM=="input", ENV{LIBINPUT_IGNORE_DEVICE}="1"

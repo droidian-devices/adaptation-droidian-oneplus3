@@ -29,6 +29,6 @@ override_dh_installsystemd:
 	dh_installsystemd -padaptation-oneplus3-configs --name=dashd dashd.service --no-start
 	dh_installsystemd -padaptation-oneplus3-configs --name=double-tap double-tap.service --no-start
 	dh_installsystemd -padaptation-oneplus3-configs --name=keyboard-layout keyboard-layout.service --no-start
-	dh_installsystemd -padaptation-oneplus3-configs --name=lights lights.service --no-start
-	dh_installsystemd -padaptation-oneplus3-configs --name=wifiman wifiman.service --no-start
-	dh_installsystemd -padaptation-oneplus3-configs --name=btscanner btscanner.service --no-start
+	dh_installsystemd -padaptation-oneplus3-configs --name=lights lights.service
+	dh_installsystemd -padaptation-oneplus3-configs --name=wifiman wifiman.service
+	dh_installsystemd -padaptation-oneplus3-configs --name=btscanner btscanner.service

@@ -8,8 +8,6 @@ override_dh_auto_build:
 	gcc -o usr/bin/fpc1020 src/fpc1020.c src/virtual-keyboard-unstable-v1-protocol.c -lwayland-client -lxkbcommon
 	gcc -o usr/bin/s1302 src/s1302.c src/virtual-keyboard-unstable-v1-protocol.c -lwayland-client -lxkbcommon
 	gcc -o usr/bin/tristate src/tristate.c `pkg-config --cflags --libs libnotify` -lpulse
-	gcc -o usr/bin/getvol src/getvol.c -lpulse -lm
-	gcc -o usr/bin/setvol src/setvol.c -lpulse
 	gcc -o usr/bin/wifiman src/wifiman.c
 	gcc -o usr/bin/btscanner src/btscanner.c
 

@@ -3,7 +3,6 @@
 /etc/pulse
 /etc/systemd/system/bluebinder.service.d
 /etc/systemd/system/phosh.service.d
-/etc/systemd/system/pulseaudio.service.d
 /etc/systemd/system/android-mount.service.d
 /usr/bin
 /usr/bin/droid

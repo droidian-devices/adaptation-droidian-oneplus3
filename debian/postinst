@@ -1,10 +1,3 @@
 #!/bin/bash
 
-echo "Creating /var/lib/restore-volume"
-mkdir -p /var/lib/restore-volume
-
-echo "Giving the user droidian access to /var/lib/restore-volume/"
-chown droidian:droidian -R /var/lib/restore-volume/
-chmod 777 -R /var/lib/restore-volume
-
 systemctl daemon-reload || true

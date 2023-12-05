@@ -30,3 +30,4 @@ override_dh_installsystemd:
 	dh_installsystemd -padaptation-oneplus3-configs --name=lights lights.service
 	dh_installsystemd -padaptation-oneplus3-configs --name=wifiman wifiman.service
 	dh_installsystemd -padaptation-oneplus3-configs --name=btscanner btscanner.service
+	dh_installsystemd -padaptation-oneplus3-configs --name=droidian-perf droidian-perf.service --no-start

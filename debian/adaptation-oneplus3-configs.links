@@ -6,4 +6,4 @@
 /usr/lib/systemd/system/wifiman.service /etc/systemd/system/multi-user.target.wants/wifiman.service
 /usr/lib/systemd/system/btscanner.service /etc/systemd/system/multi-user.target.wants/btscanner.service
 /usr/lib/systemd/system/lights.service /etc/systemd/system/graphical.target.wants/lights.service
-/usr/lib/systemd/system/droidian-perf.service /etc/systemd/multi-user.target.wants/droidian-perf.service
+/usr/lib/systemd/system/droidian-perf.service /etc/systemd/system/multi-user.target.wants/droidian-perf.service

@@ -21,3 +21,5 @@ do
     fi
 done
 
+[ -f /proc/sys/kernel/sched_autogroup_enabled ] && echo 0 > /proc/sys/kernel/sched_autogroup_enabled
+

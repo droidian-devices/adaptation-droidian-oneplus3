@@ -7,22 +7,23 @@
 
 #include <gtk/gtk.h>
 #include <adwaita.h>
+#include <glib.h>
+#include <gmodule.h>
 
-// these names are all placeholders for now
+#define CONFIG_FILE "/etc/port-settings/port-settings.conf"
+
 typedef struct {
-    bool config1;
-    bool config2;
-    bool config3;
-    bool config4;
-    bool config5;
-    bool config6;
-    bool config7;
-    bool config8;
-    bool config9;
-} Config;
+    int section_number;
+    gchar *title;
+    gchar *description;
+    gchar *node;
+    gchar *enable_value;
+    gchar *disable_value;
+} Section;
 
+bool is_section_valid(Section *section);
+Section read_section(GKeyFile *keyfile, const gchar *section_name, int section_number);
 bool read_value_from_file(const char* filepath);
-Config read_config();
 void write_value_to_file(const char *file_path, int value);
 gboolean config1_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data);
 gboolean config2_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data);

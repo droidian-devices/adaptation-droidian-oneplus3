@@ -9,6 +9,26 @@
 #include <stdbool.h>
 #include "configcontrol.h"
 
+bool is_section_valid(Section *section) {
+    return section->title && *section->title &&
+           section->description && *section->description &&
+           section->node && *section->node &&
+           section->enable_value && *section->enable_value &&
+           section->disable_value && *section->disable_value;
+}
+
+Section read_section(GKeyFile *keyfile, const gchar *section_name, int section_number) {
+    Section section;
+    section.section_number = section_number;
+    section.title = g_key_file_get_string(keyfile, section_name, "title", NULL);
+    section.description = g_key_file_get_string(keyfile, section_name, "description", NULL);
+    section.node = g_key_file_get_string(keyfile, section_name, "node", NULL);
+    section.enable_value = g_key_file_get_string(keyfile, section_name, "enable_value", NULL);
+    section.disable_value = g_key_file_get_string(keyfile, section_name, "disable_value", NULL);
+
+    return section;
+}
+
 bool read_value_from_file(const char* filepath) {
     FILE* file = fopen(filepath, "r");
     if (file == NULL) {
@@ -27,22 +47,6 @@ bool read_value_from_file(const char* filepath) {
         fprintf(stderr, "Unexpected value in file: %c\n", value);
         return false;
     }
-}
-
-Config read_config() {
-    Config config;
-
-    config.config1 = read_value_from_file("/sys/class/graphics/fb0/hbm");
-    config.config2 = read_value_from_file("/sys/class/graphics/fb0/srgb");
-    config.config3 = read_value_from_file("/sys/class/graphics/fb0/dci_p3");
-    config.config4 = read_value_from_file("/proc/touchpanel/double_tap_enable");
-    config.config5 = read_value_from_file("/proc/touchpanel/down_swipe_enable");
-    config.config6 = read_value_from_file("/proc/touchpanel/left_swipe_enable");
-    config.config7 = read_value_from_file("/proc/touchpanel/right_swipe_enable");
-    config.config8 = read_value_from_file("/proc/touchpanel/up_swipe_enable");
-    config.config9 = !read_value_from_file("/proc/s1302/virtual_key"); // Invert the value for config9
-
-    return config;
 }
 
 void write_value_to_file(const char *file_path, int value) {
@@ -91,5 +95,5 @@ gboolean config8_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
 }
 
 gboolean config9_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/s1302/virtual_key", state ? 0 : 1); // this switch is inverted, 1 for off 0 for on
+    write_value_to_file("/proc/s1302/virtual_key", state ? 1 : 0);
 }

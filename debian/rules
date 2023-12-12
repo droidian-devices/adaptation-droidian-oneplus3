@@ -10,6 +10,7 @@ override_dh_auto_build:
 	gcc -o usr/bin/tristate src/tristate.c `pkg-config --cflags --libs libnotify` -lpulse
 	gcc -o usr/bin/wifiman src/wifiman.c
 	gcc -o usr/bin/btscanner src/btscanner.c
+	gcc -o usr/bin/port-settings src/port-settings/port-settings.c src/port-settings/configcontrol.c `pkg-config --cflags --libs gtk4 libadwaita-1`
 
 override_dh_auto_install:
 	cp debian/adaptation-oneplus3-configs.fpc1020.service debian/fpc1020.service

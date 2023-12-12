@@ -2,7 +2,16 @@ Source: adaptation-droidian-oneplus3
 Maintainer: Bardia Moshiri
 Section: metapackages
 Priority: optional
-Build-Depends: debhelper, gcc, inotify-tools, libwayland-dev, libxkbcommon-dev, libpulse-dev, libpulse-mainloop-glib0, libnotify-dev
+Build-Depends: debhelper, 
+               gcc,
+               inotify-tools,
+               libwayland-dev,
+               libxkbcommon-dev,
+               libpulse-dev,
+               libpulse-mainloop-glib0,
+               libnotify-dev,
+               libgtk-4-dev,
+               libadwaita-1-dev,
 Standards-Version: 4.5.0.3
 Vcs-Browser: https://github.com/droidian-devices/adaptation-droidian-oneplus3
 Vcs-Git: https://github.com/droidian-devices/adaptation-droidian-oneplus3.git

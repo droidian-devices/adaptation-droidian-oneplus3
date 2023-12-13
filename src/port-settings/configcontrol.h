@@ -25,6 +25,7 @@ bool is_section_valid(Section *section);
 Section read_section(GKeyFile *keyfile, const gchar *section_name, int section_number);
 bool read_value_from_file(const char* filepath);
 void write_value_to_file(const char *file_path, int value);
+
 gboolean config1_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data);
 gboolean config2_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data);
 gboolean config3_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data);

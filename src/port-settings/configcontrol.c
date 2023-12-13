@@ -62,38 +62,146 @@ void write_value_to_file(const char *file_path, int value) {
     fclose(file);
 }
 
-gboolean config1_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/sys/class/graphics/fb0/hbm", state ? 1 : 0);
+gboolean config1_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "1");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config2_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/sys/class/graphics/fb0/srgb", state ? 1 : 0);
+gboolean config2_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "2");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config3_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/sys/class/graphics/fb0/dci_p3", state ? 1 : 0);
+gboolean config3_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "3");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config4_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/touchpanel/double_tap_enable", state ? 1 : 0);
+gboolean config4_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "4");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config5_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/touchpanel/down_swipe_enable", state ? 1 : 0);
+gboolean config5_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "5");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config6_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/touchpanel/left_swipe_enable", state ? 1 : 0);
+gboolean config6_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "6");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config7_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/touchpanel/right_swipe_enable", state ? 1 : 0);
+gboolean config7_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "7");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config8_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/touchpanel/up_swipe_enable", state ? 1 : 0);
+gboolean config8_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "8");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }
 
-gboolean config9_switch_state_set(GtkSwitch*, gboolean state, gpointer) {
-    write_value_to_file("/proc/s1302/virtual_key", state ? 1 : 0);
+gboolean config9_switch_state_set(GtkSwitch* sender, gboolean state, gpointer data) {
+    GKeyFile *keyfile = g_key_file_new();
+
+    char section_name[10];
+    snprintf(section_name, sizeof(section_name), "9");
+
+    g_key_file_load_from_file(keyfile, CONFIG_FILE, G_KEY_FILE_NONE, NULL);
+
+    Section *section = g_new(Section, 1);
+    *section = read_section(keyfile, section_name, 1);
+
+    g_key_file_free(keyfile);
+
+    write_value_to_file(section->node, state ? atoi(section->enable_value) : atoi(section->disable_value));
 }

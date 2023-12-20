@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Port Settings
+GenericName=Port Settings
+Comment=A settings app for port specific options
+Icon=/usr/share/icons/port-settings.svg
+Exec=port-settings
+Terminal=false
+Categories=System
+Keywords=Preferences;Settings;

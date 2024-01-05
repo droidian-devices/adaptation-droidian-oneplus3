@@ -50,3 +50,4 @@ done
 [ -f /proc/sys/kernel/sched_energy_aware ] && echo 0 > /proc/sys/kernel/sched_energy_aware
 [ -f /proc/sys/kernel/hung_task_timeout_secs ] && echo 0 > /proc/sys/kernel/hung_task_timeout_secs
 [ -f /proc/sys/kernel/sched_conservative_pl ] && echo 0 > /proc/sys/kernel/sched_conservative_pl
+[ -f /sys/kernel/debug/debug_enabled ] && echo 0 > /sys/kernel/debug/debug_enabled 

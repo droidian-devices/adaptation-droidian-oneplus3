@@ -22,4 +22,10 @@ do
 done
 
 [ -f /proc/sys/kernel/sched_autogroup_enabled ] && echo 0 > /proc/sys/kernel/sched_autogroup_enabled
+[ -f /sys/class/kgsl/kgsl-3d0/bus_split ] && echo 0 > /sys/class/kgsl/kgsl-3d0/bus_split 
+[ -f /sys/class/kgsl/kgsl-3d0/min_pwrlevel ] && echo 0 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel 
+[ -f /sys/class/kgsl/kgsl-3d0/force_bus_on ] && echo 1 > /sys/class/kgsl/kgsl-3d0/force_bus_on 
+[ -f /sys/class/kgsl/kgsl-3d0/force_clk_on ] && echo 1 > /sys/class/kgsl/kgsl-3d0/force_clk_on 
+[ -f /sys/class/kgsl/kgsl-3d0/force_rail_on ] && echo 1 > /sys/class/kgsl/kgsl-3d0/force_rail_on 
+[ -f /sys/class/kgsl/kgsl-3d0/popp ] && echo 0 > /sys/class/kgsl/kgsl-3d0/popp 
 

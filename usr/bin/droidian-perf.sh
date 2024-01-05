@@ -22,6 +22,7 @@ do
 done
 
 [ -f /proc/sys/kernel/sched_autogroup_enabled ] && echo 0 > /proc/sys/kernel/sched_autogroup_enabled
+[ -f /sys/module/cpu_boost/parameters/input_bost_ms ] && echo 156 > /sys/module/cpu_boost/parameters/input_boost_ms
 [ -f /sys/class/kgsl/kgsl-3d0/bus_split ] && echo 0 > /sys/class/kgsl/kgsl-3d0/bus_split 
 [ -f /sys/class/kgsl/kgsl-3d0/min_pwrlevel ] && echo 0 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel 
 [ -f /sys/class/kgsl/kgsl-3d0/force_bus_on ] && echo 1 > /sys/class/kgsl/kgsl-3d0/force_bus_on 

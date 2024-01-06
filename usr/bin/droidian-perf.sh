@@ -54,3 +54,10 @@ done
 [ -f /sys/kernel/debug/msm_vidc/fw_debug_mode ] && echo 0 > /sys/kernel/debug/msm_vidc/fw_debug_mode
 [ -f /sys/module/spurious/parameters/noirqdebug ] && echo 1 > /sys/module/spurious/parameters/noirqdebug
 
+# I/O optimizations
+DEFAULT_READ_AHEAD_KB=$(cat /sys/block/loop0/queue/read_ahead_kb)
+for path in $(find /sys/block/*/queue -name read_ahead_kb); do echo $DEFAULT_READ_AHEAD_KB > $path; done
+# Set a slightly increased value for the disk where userdata resides on
+USERDATA_DISK=$(find /sys/block/*/ -name $(blkid | grep -iE 'partlabel="userdata"' | cut -d: -f1 | cut -d/ -f3) | cut -d/ -f4)
+echo $(( $DEFAULT_READ_AHEAD_KB + $DEFAULT_READ_AHEAD_KB / 8 )) > $USERDATA_DISK/queue/read_ahead_kb
+

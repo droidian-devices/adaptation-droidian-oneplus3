@@ -52,3 +52,5 @@ done
 [ -f /proc/sys/kernel/sched_conservative_pl ] && echo 0 > /proc/sys/kernel/sched_conservative_pl
 [ -f /sys/kernel/debug/debug_enabled ] && echo 0 > /sys/kernel/debug/debug_enabled
 [ -f /sys/kernel/debug/msm_vidc/fw_debug_mode ] && echo 0 > /sys/kernel/debug/msm_vidc/fw_debug_mode
+[ -f /sys/module/spurious/parameters/noirqdebug ] && echo 1 > /sys/module/spurious/parameters/noirqdebug
+

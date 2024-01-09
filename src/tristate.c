@@ -16,9 +16,6 @@
 char DEVICE_FILE[MAX_CONFIG_LINE_LENGTH];
 char NAME[MAX_CONFIG_LINE_LENGTH];
 int NOTIFICATION_RESET_COUNT;
-int KEY_CODE_1;
-int KEY_CODE_2;
-int KEY_CODE_3;
 
 pa_mainloop *mainloop = NULL;
 
@@ -188,12 +185,6 @@ void readconfig() {
             strcpy(NAME, value);
         } else if (strcmp(key, "NOTIFICATION_RESET_COUNT") == 0) {
             NOTIFICATION_RESET_COUNT = atoi(value);
-        } else if (strcmp(key, "KEY_CODE_1") == 0) {
-            KEY_CODE_1 = atoi(value);
-        } else if (strcmp(key, "KEY_CODE_2") == 0) {
-            KEY_CODE_2 = atoi(value);
-        } else if (strcmp(key, "KEY_CODE_3") == 0) {
-            KEY_CODE_3 = atoi(value);
         }
     }
 
@@ -202,7 +193,6 @@ void readconfig() {
 
 int main(int argc, char *argv[]) {
     readconfig();
-    struct input_event ev;
 
     int fd_notify = inotify_init();
     if (fd_notify < 0) {
@@ -224,49 +214,51 @@ int main(int argc, char *argv[]) {
     char buffer[sizeof(struct inotify_event) + 255];
     ssize_t len;
 
+    const char* file_path = "/sys/class/switch/extcon4/state";
+    int usb, usb_host, null_value;
+    FILE *file;
+
     init_queue_and_worker();
 
     while (1) {
         len = read(fd_notify, buffer, sizeof(buffer));
         if (len > 0) {
             notification_count++;
-            int fd_device = open(DEVICE_FILE, O_RDONLY);
-            if (fd_device == -1) {
-                perror("Cannot access input device");
-                exit(EXIT_FAILURE);
+            file = fopen(file_path, "r");
+            if (file == NULL) {
+                perror("Error in opening file");
+                continue;
             }
 
-            read(fd_device, &ev, sizeof(struct input_event));
-            if (ev.type == EV_KEY && ev.value == 1) {
-                switch (ev.code) {
-                    case 600:
-                        unmute();
-                        enqueue("pactl set-source-mute @DEFAULT_SOURCE@ 0");
-                        break;
-                    case 601:
-                        unmute();
-                        enqueue("pactl set-source-mute @DEFAULT_SOURCE@ 1");
-                        NotifyNotification *mic_mute_notification = notify_notification_new("Audio status", "Audio has been muted (Input)", NULL);
-                        notify_notification_set_timeout(mic_mute_notification, 2000);
+            fscanf(file, "USB=%d\nUSB_HOST=%d\n(null)=%d", &usb, &usb_host, &null_value);
 
-                        notify_notification_set_hint_string(mic_mute_notification, "category", "device");
-                        notify_notification_set_urgency(mic_mute_notification, NOTIFY_URGENCY_LOW);
+            fclose(file);
 
-                        notify_notification_set_hint(mic_mute_notification, "transient", g_variant_new_boolean(TRUE));
+            printf("Read values: USB=%d, USB_HOST=%d, (null)=%d\n", usb, usb_host, null_value);
 
-                        notify_notification_show(mic_mute_notification, NULL);
-                        g_object_unref(mic_mute_notification);
-                        break;
-                    case 602:
-                        mute();
-                        enqueue("pactl set-source-mute @DEFAULT_SOURCE@ 1");
-                        break;
-                    default:
-                        break;
-                }
+            if (usb == 1 && usb_host == 1 && null_value == 0) {
+                printf("up\n");
+                unmute();
+                enqueue("pactl set-source-mute @DEFAULT_SOURCE@ 0");
+            } else if (usb == 1 && usb_host == 0 && null_value == 1) {
+                printf("mid\n");
+                unmute();
+                enqueue("pactl set-source-mute @DEFAULT_SOURCE@ 1");
+                NotifyNotification *mic_mute_notification = notify_notification_new("Audio status", "Audio has been muted (Input)", NULL);
+                notify_notification_set_timeout(mic_mute_notification, 2000);
+
+                notify_notification_set_hint_string(mic_mute_notification, "category", "device");
+                notify_notification_set_urgency(mic_mute_notification, NOTIFY_URGENCY_LOW);
+
+                notify_notification_set_hint(mic_mute_notification, "transient", g_variant_new_boolean(TRUE));
+
+                notify_notification_show(mic_mute_notification, NULL);
+                g_object_unref(mic_mute_notification);
+            } else {
+                printf("down\n");
+                mute();
+                enqueue("pactl set-source-mute @DEFAULT_SOURCE@ 1");
             }
-
-            close(fd_device);
 
             if (notification_count >= NOTIFICATION_RESET_COUNT) {
                 // Reset inotify

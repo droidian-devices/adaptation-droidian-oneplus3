@@ -42,11 +42,6 @@ int is_gnome_running() {
     char path[40], read_buf[256];
     struct dirent* entry;
 
-    if (!(dir = opendir("/proc"))) {
-        perror("Can't open /proc");
-        return -1;
-    }
-
     checked_pids_count = 0;
 
     while ((entry = readdir(dir)) != NULL) {
@@ -58,23 +53,17 @@ int is_gnome_running() {
         if (is_pid_checked(pid))
             continue;
 
-        snprintf(path, sizeof(path), "/proc/%s/stat", entry->d_name);
+        snprintf(path, sizeof(path), "/proc/%s/cmdline", entry->d_name);
         if ((fp = fopen(path, "r")) != NULL) {
             if (fgets(read_buf, sizeof(read_buf), fp) != NULL) {
-                fclose(fp);
-                snprintf(path, sizeof(path), "/proc/%s/cmdline", entry->d_name);
-                if ((fp = fopen(path, "r")) != NULL) {
-                    if (fgets(read_buf, sizeof(read_buf), fp) != NULL) {
-                        if (strstr(read_buf, "gnome-control-center") != NULL) {
-                            fclose(fp);
-                            closedir(dir);
-                            return 1;
-                        }
-                    }
-
+                if (strstr(read_buf, "gnome-control-center") != NULL) {
                     fclose(fp);
+                    closedir(dir);
+                    return 1;
                 }
             }
+
+            fclose(fp);
         }
 
         if (checked_pids_count < MAX_PIDS) {
@@ -103,7 +92,7 @@ int main() {
             stop_bluetoothctl();
         }
 
-        sleep(2);
+        sleep(5);
     }
 
     return 0;

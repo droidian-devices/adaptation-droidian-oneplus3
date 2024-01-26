@@ -1,3 +1,0 @@
-service vendor.vr-1-0 android.hardware.vr@1.0-service_HALIUM_DISABLED
-    disabled
-    override

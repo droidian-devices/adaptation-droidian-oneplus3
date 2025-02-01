@@ -9,7 +9,10 @@
 #include <libnotify/notify.h>
 
 #define MAX_CONFIG_LINE_LENGTH 512
-#define CONFIG_PATH "/usr/lib/droidian/device/action-on-key.conf"
+#define MAX_CONFIG_PATH_LENGTH 256
+
+#define PKG_CONFIG "/usr/lib/droidian/device/action-on-key.conf"
+#define SYSTEM_CONFIG "/etc/tristate/action-on-key.conf"
 
 char DEVICE_FILE[MAX_CONFIG_LINE_LENGTH];
 char NAME[MAX_CONFIG_LINE_LENGTH];
@@ -35,9 +38,20 @@ void run_command(char *command) {
 }
 
 void readconfig() {
-    FILE *file = fopen(CONFIG_PATH, "r");
-    if (file == NULL) {
-        g_print("Error: Could not open config file\n");
+    char* home_dir = getenv("HOME");
+    char user_config[MAX_CONFIG_PATH_LENGTH]; 
+    snprintf(user_config, sizeof(user_config), "%s/.config/tristate/action-on-key.conf", home_dir);
+         
+    FILE *file_temp, *file;
+    
+    if ((file_temp = fopen(user_config, "r"))) {
+        file = file_temp;
+    } else if ((file_temp = fopen(SYSTEM_CONFIG, "r"))) {
+        file = file_temp;
+    } else if ((file_temp = fopen(PKG_CONFIG, "r"))) {
+        file = file_temp;
+    } else {
+        g_print("Error: Couldn't read any config file!");
         exit(1);
     }
 
